@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!--<link rel="stylesheet" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <link rel="stylesheet" media="screen" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="bower_components/particles.js/particles.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+    <link rel="stylesheet" href="./css/subscribe.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!--count particles
+ -->
+<div class="count-particles">
+    <span class="js-count-particles">--</span> particles
+</div>
+
+<!-- particles.js container -->
+<div id="particles-js">
+    <!--<h1>HELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLDHELLO WORLD</h1>-->
+    <!--&lt;!&ndash;<form class="ctr" action="#" method="#" id="subscribe-form" >&ndash;&gt;-->
+    <!--<div class="loader"></div>-->
+    <!--<input type="text" id="email-input">-->
+    <!--<div class="indicator" data-content="Type Your Email Address"></div>-->
+    <!--&lt;!&ndash;</form>&ndash;&gt;-->
+    <div class="body">
+        <div class="title">
+            <h1 style="font-size: 50px;">مشروع التبرع بالدم</h1>
+            <br>
+            <br>
+            <br>
+            <h3>مجموعة من الشباب الجزائريين قيد تطوير موقع و تطبيق هاتف يهدفان لحل مشكل نقص الدم في المستشفيات</h3>
+        </div>
+        <div class="thumbnail center well well-sm text-center">
+            <p>أكتب بريدك الخاص حتى نعلمك حين يتم إطلاق الموقغ و التطبيق الهاتفي</p>
+            <form action="" method="post" role="form">
+                <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                      </span>
+                    <input class="form-control" type="text" id="" name="" placeholder="your@email.com">
+                </div>
+                <input type="submit" value="Subscribe" class="btn btn-large btn-danger"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--CODE ENDS-->
+<!-- scripts -->
+<script src="./bower_components/particles.js/particles.js"></script>
+<script src="./js/app.js"></script>
+<!-- stats.js -->
+<script src="./js/lib/stats.js"></script>
+<script>
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function () {
+        //   stats.begin();
+        //  stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
+<!--Code End-->
+<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script>
+    (function () {
+        var content, form, indicator, input, loader;
+        input = document.querySelector("#email-input");
+        form = document.querySelector("#subscribe-form");
+        indicator = document.querySelector(".indicator");
+        loader = document.querySelector(".loader");
+        content = input.value;
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            indicator.setAttribute("data-content", "Saving...");
+            loader.classList.add("full");
+            return setTimeout((function () {
+                indicator.setAttribute("data-content", "You've been subscribed!");
+                loader.classList.add("done");
+                input.classList.add("full");
+                return input.value("");
+            }), 3000);
+        });
+
+        input.addEventListener("input", function () {
+            return indicator.setAttribute("data-content", "Now hit enter!");
+        });
+
+    }).call(this);
+</script>
+</body>
+</html>
